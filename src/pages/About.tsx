@@ -88,20 +88,11 @@ export default function About() {
               </Link>
             </div>
             <div className="bg-cream rounded-2xl p-8 flex items-center justify-center min-h-64">
-              {instructorImage ? (
-                <img
-                  src={instructorImage}
-                  alt="Abreanna Parker"
-                  className="rounded-xl w-full object-cover max-h-96"
-                />
-              ) : (
-                <div className="text-center text-charcoal-light">
-                  <div className="w-24 h-24 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users size={40} className="text-teal" />
-                  </div>
-                  <p className="font-semibold">Studio Photo</p>
-                </div>
-              )}
+              <img
+                src="/images/f4cb0ec5-178a-4169-942f-23c5184bd4b7.jpg"
+                alt="Mind and Body by Bre Studio"
+                className="rounded-xl w-full object-cover max-h-96"
+              />
             </div>
           </div>
         </div>
