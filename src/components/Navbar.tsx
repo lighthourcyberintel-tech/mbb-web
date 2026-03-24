@@ -35,12 +35,11 @@ export default function Navbar() {
       <div className="container-max px-4 md:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-teal font-extrabold text-xl md:text-2xl leading-tight">
-              MBB
-            </span>
-            <span className="hidden sm:block text-charcoal font-semibold text-sm md:text-base leading-tight">
-              Mind and Body by Bre
-            </span>
+            <img
+              src="/images/B00AAEA9-E619-4209-ACD8-CBCCFD678F39.png"
+              alt="MBB"
+              className="h-10"
+            />
           </Link>
 
           <div className="hidden md:flex items-center gap-6">

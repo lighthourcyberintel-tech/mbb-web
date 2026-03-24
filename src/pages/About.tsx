@@ -44,7 +44,7 @@ export default function About() {
     "instructor_bio",
     "Abreanna Parker is a certified personal trainer with a background in mental health and wellness. She combines her passion for fitness with a deep understanding of the mindset work required to create lasting change. Her approach is soft yet strong, accessible yet challenging, and always rooted in community and care."
   );
-  const instructorImage = getSectionImage("instructor_image", "");
+  const instructorImage = getSectionImage("instructor_image", "/images/IMG_4515.jpeg");
   const valuesTitle = getSectionContent("values_title", "The Values We Live By");
 
   return (
@@ -57,9 +57,13 @@ export default function About() {
         />
       </Helmet>
 
-      <section className="section-padding bg-teal text-white">
-        <div className="container-max text-center">
-          <p className="text-olive-dark font-semibold text-sm uppercase tracking-widest mb-4">
+      <section
+        className="relative section-padding text-white bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/IMG_4556.jpeg')" }}
+      >
+        <div className="absolute inset-0 bg-charcoal/60" />
+        <div className="relative z-10 container-max text-center">
+          <p className="text-olive font-semibold text-sm uppercase tracking-widest mb-4">
             Our Story
           </p>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 max-w-3xl mx-auto">

@@ -59,7 +59,7 @@ export default function Home() {
     "hero_subheadline",
     "Women-centered fitness and wellness in Topeka, KS. Personal training, group classes, and mindset coaching designed to help you become your strongest self."
   );
-  const heroImage = getSectionImage("hero_image", "");
+  const heroImage = getSectionImage("hero_image", "/images/IMG_5720.jpeg");
   const featuredTitle = getSectionContent(
     "featured_title",
     "Our Signature Classes"
@@ -237,6 +237,13 @@ export default function Home() {
         <div className="container-max">
           <div className="text-center mb-12">
             <h2 className="section-title">{testimonialsTitle}</h2>
+          </div>
+          <div className="mb-12 rounded-2xl overflow-hidden">
+            <img
+              src="/images/IMG_6671 (1).jpeg"
+              alt="MBB Community"
+              className="w-full h-64 md:h-96 object-cover"
+            />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t) => (

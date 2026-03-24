@@ -100,8 +100,12 @@ export default function Schedule() {
         />
       </Helmet>
 
-      <section className="section-padding bg-teal text-white">
-        <div className="container-max text-center">
+      <section
+        className="relative section-padding text-white bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/IMG_6673.jpeg')" }}
+      >
+        <div className="absolute inset-0 bg-charcoal/60" />
+        <div className="relative z-10 container-max text-center">
           <p className="text-olive font-semibold text-sm uppercase tracking-widest mb-4">
             Weekly Schedule
           </p>
