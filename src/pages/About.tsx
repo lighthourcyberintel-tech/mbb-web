@@ -91,7 +91,7 @@ export default function About() {
               <img
                 src="/images/f4cb0ec5-178a-4169-942f-23c5184bd4b7.jpg"
                 alt="Mind and Body by Bre Studio"
-                className="rounded-xl w-full object-cover max-h-96"
+                className="rounded-xl w-full object-cover object-top max-h-96"
               />
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function About() {
                 <img
                   src={instructorImage}
                   alt={instructorName}
-                  className="rounded-xl w-full object-cover max-h-96"
+                  className="rounded-xl w-full object-cover object-top max-h-96"
                 />
               ) : (
                 <div className="text-center text-charcoal-light">
