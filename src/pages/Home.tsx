@@ -92,7 +92,7 @@ export default function Home() {
       </Helmet>
 
       <section
-        className="relative min-h-screen flex items-center justify-center bg-charcoal"
+        className="relative min-h-screen flex items-end justify-center pb-24 bg-charcoal"
         style={
           heroImage
             ? {
