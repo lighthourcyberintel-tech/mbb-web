@@ -242,7 +242,7 @@ export default function Home() {
             <img
               src="/images/IMG_6671 (1).jpeg"
               alt="MBB Community"
-              className="w-full h-64 md:h-96 object-cover"
+              className="w-full object-cover object-top"
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
