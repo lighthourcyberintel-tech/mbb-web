@@ -107,9 +107,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-charcoal/60" />
         )}
         <div className="relative z-10 container-max section-padding text-center text-white">
-          <p className="text-olive font-semibold text-sm uppercase tracking-widest mb-4">
-            Mind and Body by Bre
-          </p>
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 max-w-4xl mx-auto">
             {heroHeadline}
           </h1>
