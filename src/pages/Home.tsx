@@ -98,7 +98,7 @@ export default function Home() {
             ? {
                 backgroundImage: `url(${heroImage})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundPosition: "center top",
               }
             : {}
         }
