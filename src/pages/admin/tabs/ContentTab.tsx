@@ -11,6 +11,14 @@ interface ContentItem {
   content: string;
 }
 
+function capitalize(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function formatLabel(key: string): string {
+  return key.split("_").map(capitalize).join(" ");
+}
+
 export default function ContentTab() {
   const [items, setItems] = useState<ContentItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -27,11 +35,23 @@ export default function ContentTab() {
       try {
         setLoading(true);
         const res = await axios.get(API_ENDPOINTS.admin.content, { headers });
-        const data = Array.isArray(res.data) ? res.data : [];
+        let data: ContentItem[] = [];
+        if (Array.isArray(res.data)) {
+          data = res.data;
+        } else if (res.data && typeof res.data === "object") {
+          // Handle object format: { pageName: { section: value } } or flat { section: value }
+          for (const [key, val] of Object.entries(res.data)) {
+            if (val && typeof val === "object" && !Array.isArray(val)) {
+              for (const [section, content] of Object.entries(val as Record<string, string>)) {
+                data.push({ _id: `${key}_${section}`, pageName: key, section, content: String(content) });
+              }
+            }
+          }
+        }
         setItems(data);
         const vals: Record<string, string> = {};
         data.forEach((item: ContentItem) => {
-          vals[item._id] = item.content;
+          vals[item._id] = item.content ?? "";
         });
         setEditValues(vals);
       } catch {
@@ -72,18 +92,18 @@ export default function ContentTab() {
     <div className="space-y-8">
       {Object.entries(grouped).map(([page, pageItems]) => (
         <div key={page}>
-          <h3 className="text-lg font-bold text-charcoal capitalize mb-3">
-            {page}
+          <h3 className="text-lg font-bold text-charcoal mb-3">
+            {capitalize(page)}
           </h3>
           <div className="space-y-3">
             {pageItems.map((item) => (
               <div key={item._id} className="card p-4">
                 <label className="block text-sm font-semibold text-charcoal-light mb-1">
-                  {item.section}
+                  {formatLabel(item.section)}
                 </label>
                 <div className="flex gap-2">
                   <textarea
-                    value={editValues[item._id] || ""}
+                    value={editValues[item._id] ?? ""}
                     onChange={(e) =>
                       setEditValues((p) => ({ ...p, [item._id]: e.target.value }))
                     }
