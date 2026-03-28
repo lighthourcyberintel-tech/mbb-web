@@ -35,11 +35,18 @@ export default function ContentTab() {
       try {
         setLoading(true);
         const res = await axios.get(API_ENDPOINTS.admin.content, { headers });
+        console.log("[ContentTab] raw API response:", res.data);
         let data: ContentItem[] = [];
         if (Array.isArray(res.data)) {
-          data = res.data;
+          // Normalize field names - API may use page/pageName, section/key, content/value
+          data = res.data.map((doc: Record<string, unknown>) => ({
+            _id: String(doc._id || doc.id || ""),
+            pageName: String(doc.pageName || doc.page || ""),
+            section: String(doc.section || doc.key || ""),
+            content: String(doc.content || doc.value || ""),
+          }));
         } else if (res.data && typeof res.data === "object") {
-          // Handle object format: { pageName: { section: value } } or flat { section: value }
+          // Handle nested object format: { pageName: { section: value } }
           for (const [key, val] of Object.entries(res.data)) {
             if (val && typeof val === "object" && !Array.isArray(val)) {
               for (const [section, content] of Object.entries(val as Record<string, string>)) {
