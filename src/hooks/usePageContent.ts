@@ -2,18 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_ENDPOINTS } from "../config/api";
 
-interface PageContentItem {
-  id: string;
-  pageName: string;
-  section: string;
-  type: "text" | "image";
-  content: string;
-  imageUrl: string;
-  updatedAt: string;
-}
-
 interface UsePageContentReturn {
-  content: PageContentItem[];
+  content: Record<string, string>;
   loading: boolean;
   error: string | null;
   getSectionContent: (section: string, fallback?: string) => string;
@@ -21,7 +11,7 @@ interface UsePageContentReturn {
 }
 
 export const usePageContent = (pageName: string): UsePageContentReturn => {
-  const [content, setContent] = useState<PageContentItem[]>([]);
+  const [content, setContent] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,7 +24,7 @@ export const usePageContent = (pageName: string): UsePageContentReturn => {
         setContent(response.data);
       } catch (err) {
         setError("Failed to load page content");
-        setContent([]);
+        setContent({});
       } finally {
         setLoading(false);
       }
@@ -44,17 +34,11 @@ export const usePageContent = (pageName: string): UsePageContentReturn => {
   }, [pageName]);
 
   const getSectionContent = (section: string, fallback = ""): string => {
-    const item = content.find(
-      (c) => c.section === section && c.type === "text"
-    );
-    return item?.content || fallback;
+    return content[section] || fallback;
   };
 
   const getSectionImage = (section: string, fallback = ""): string => {
-    const item = content.find(
-      (c) => c.section === section && c.type === "image"
-    );
-    return item?.imageUrl || fallback;
+    return content[section] || fallback;
   };
 
   return {
