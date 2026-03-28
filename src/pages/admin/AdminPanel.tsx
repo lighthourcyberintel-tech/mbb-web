@@ -13,6 +13,27 @@ import {
   LogOut,
 } from "lucide-react";
 import { useAuthStore } from "../../store/authStore";
+import DashboardTab from "./tabs/DashboardTab";
+import ContentTab from "./tabs/ContentTab";
+import ClassesTab from "./tabs/ClassesTab";
+import ScheduleTab from "./tabs/ScheduleTab";
+import MembershipsTab from "./tabs/MembershipsTab";
+import RegistrationsTab from "./tabs/RegistrationsTab";
+import HoursTab from "./tabs/HoursTab";
+import BannersTab from "./tabs/BannersTab";
+import SettingsTab from "./tabs/SettingsTab";
+
+const tabComponents: Record<string, React.FC> = {
+  dashboard: DashboardTab,
+  content: ContentTab,
+  classes: ClassesTab,
+  schedule: ScheduleTab,
+  memberships: MembershipsTab,
+  registrations: RegistrationsTab,
+  hours: HoursTab,
+  banners: BannersTab,
+  settings: SettingsTab,
+};
 
 const tabs = [
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -92,17 +113,10 @@ export default function AdminPanel() {
           </p>
         </div>
 
-        <div className="card p-8">
-          <div className="text-center text-charcoal-light py-16">
-            <p className="text-lg font-semibold mb-2">
-              {tabs.find((t) => t.key === activeTab)?.label} Panel
-            </p>
-            <p className="text-sm">
-              This section is under development. Full admin functionality coming
-              soon.
-            </p>
-          </div>
-        </div>
+        {(() => {
+          const TabComponent = tabComponents[activeTab];
+          return TabComponent ? <TabComponent /> : null;
+        })()}
       </main>
     </div>
   );
