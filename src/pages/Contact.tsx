@@ -44,7 +44,7 @@ export default function Contact() {
   const email = getSectionContent("email", "abreparker923@gmail.com");
   const hours = getSectionContent(
     "hours",
-    "Mon-Fri: 6AM-8PM | Sat: 8AM-12PM | Sun: Closed"
+    "M-Th: 9AM-3PM | Fri: 10AM-12PM"
   );
 
   const {
