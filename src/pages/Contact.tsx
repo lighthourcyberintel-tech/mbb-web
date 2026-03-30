@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Mail, Clock } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -11,7 +11,7 @@ import { usePageContent } from "../hooks/usePageContent";
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
-  phone: z.string().optional(),
+
   interest: z.string().min(1, "Please select an interest"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
@@ -40,7 +40,7 @@ export default function Contact() {
     "address",
     "Topeka, KS"
   );
-  const phone = getSectionContent("phone", "(785) 000-0000");
+
   const email = getSectionContent("email", "hello@mindandbodybybre.com");
   const hours = getSectionContent(
     "hours",
@@ -151,17 +151,6 @@ export default function Contact() {
                     )}
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-semibold mb-1">
-                      Phone
-                    </label>
-                    <input
-                      {...register("phone")}
-                      type="tel"
-                      className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent"
-                      placeholder="(555) 000-0000"
-                    />
-                  </div>
 
                   <div>
                     <label className="block text-sm font-semibold mb-1">
@@ -230,15 +219,6 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-cream rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone size={18} className="text-teal" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-sm mb-1">Phone</h3>
-                    <p className="text-charcoal-light text-sm">{phone}</p>
-                  </div>
-                </div>
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-cream rounded-full flex items-center justify-center flex-shrink-0">

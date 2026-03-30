@@ -45,7 +45,7 @@ export default function Footer() {
             </h4>
             <div className="text-gray-400 text-sm space-y-2">
               <p>Topeka, KS</p>
-              <p>(785) 000-0000</p>
+
               <p>hello@mindandbodybybre.com</p>
             </div>
           </div>

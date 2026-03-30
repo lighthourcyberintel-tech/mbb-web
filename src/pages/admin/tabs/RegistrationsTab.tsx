@@ -71,7 +71,7 @@ export default function RegistrationsTab() {
           <tr className="border-b border-gray-200 text-left">
             <th className="py-3 px-4 font-semibold text-charcoal">Name</th>
             <th className="py-3 px-4 font-semibold text-charcoal">Email</th>
-            <th className="py-3 px-4 font-semibold text-charcoal">Phone</th>
+
             <th className="py-3 px-4 font-semibold text-charcoal">Membership</th>
             <th className="py-3 px-4 font-semibold text-charcoal">Status</th>
             <th className="py-3 px-4 font-semibold text-charcoal">Actions</th>
@@ -82,7 +82,7 @@ export default function RegistrationsTab() {
             <tr key={r._id} className="border-b border-gray-100 hover:bg-cream-dark/50">
               <td className="py-3 px-4 text-charcoal">{r.firstName} {r.lastName}</td>
               <td className="py-3 px-4 text-charcoal-light">{r.email}</td>
-              <td className="py-3 px-4 text-charcoal-light">{r.phone}</td>
+
               <td className="py-3 px-4 text-charcoal-light">{r.membershipName}</td>
               <td className="py-3 px-4">
                 <select
