@@ -46,7 +46,7 @@ export default function Footer() {
             <div className="text-gray-400 text-sm space-y-2">
               <p>Topeka, KS</p>
 
-              <p>hello@mindandbodybybre.com</p>
+              <p>abreparker923@gmail.com</p>
             </div>
           </div>
         </div>

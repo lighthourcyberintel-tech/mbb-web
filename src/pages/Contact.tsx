@@ -41,7 +41,7 @@ export default function Contact() {
     "Topeka, KS"
   );
 
-  const email = getSectionContent("email", "hello@mindandbodybybre.com");
+  const email = getSectionContent("email", "abreparker923@gmail.com");
   const hours = getSectionContent(
     "hours",
     "Mon-Fri: 6AM-8PM | Sat: 8AM-12PM | Sun: Closed"
